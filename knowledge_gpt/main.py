@@ -27,7 +27,7 @@ MODEL_LIST = ["gpt-3.5-turbo", "gpt-4"]
 # MODEL_LIST.insert(0, "debug")
 
 st.set_page_config(page_title="Yuri KnowledgeGPT Test V1", page_icon="📖", layout="wide")
-st.header("📖Yuri 手搓KnowledgeGPT V1")
+st.header("📖Yuri KnowledgeGPT V1")
 
 # Enable caching for expensive functions
 bootstrap_caching()
