@@ -26,8 +26,8 @@ MODEL_LIST = ["gpt-3.5-turbo", "gpt-4"]
 # Uncomment to enable debug mode
 # MODEL_LIST.insert(0, "debug")
 
-st.set_page_config(page_title="KnowledgeGPT", page_icon="📖", layout="wide")
-st.header("📖KnowledgeGPT")
+st.set_page_config(page_title="Yuri KnowledgeGPT Test V1", page_icon="📖", layout="wide")
+st.header("📖Yuri 手搓KnowledgeGPT V1")
 
 # Enable caching for expensive functions
 bootstrap_caching()
@@ -39,8 +39,8 @@ openai_api_key = st.session_state.get("OPENAI_API_KEY")
 
 if not openai_api_key:
     st.warning(
-        "sidebar 输入你的 OpenAI API key "
-        " https://platform.openai.com/account/api-keys."
+        "在边栏里输入你的 OpenAI API key "
+        " 获取地址； https://platform.openai.com/account/api-keys."
     )
 
 
@@ -53,8 +53,8 @@ uploaded_file = st.file_uploader(
 model: str = st.selectbox("Model", options=MODEL_LIST)  # type: ignore
 
 with st.expander("Advanced Options"):
-    return_all_chunks = st.checkbox("Show all chunks retrieved from vector search")
-    show_full_doc = st.checkbox("Show parsed contents of the document")
+    return_all_chunks = st.checkbox("展示全部切割文档")
+    show_full_doc = st.checkbox("展示原始文件段落")
 
 
 if not uploaded_file:
@@ -75,7 +75,7 @@ if not is_open_ai_key_valid(openai_api_key, model):
     st.stop()
 
 
-with st.spinner("Indexing document... This may take a while⏳"):
+with st.spinner("稍等，手搓原子弹ing⏳"):
     folder_index = embed_files(
         files=[chunked_file],
         embedding=EMBEDDING if model != "debug" else "debug",
@@ -84,12 +84,12 @@ with st.spinner("Indexing document... This may take a while⏳"):
     )
 
 with st.form(key="qa_form"):
-    query = st.text_area("Ask a question about the document")
-    submit = st.form_submit_button("Submit")
+    query = st.text_area("对文档进行提问")
+    submit = st.form_submit_button("问尤里")
 
 
 if show_full_doc:
-    with st.expander("Document"):
+    with st.expander("文档录入"):
         # Hack to get around st.markdown rendering LaTeX
         st.markdown(f"<p>{wrap_doc_in_html(file.docs)}</p>", unsafe_allow_html=True)
 
