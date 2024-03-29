@@ -120,16 +120,12 @@ if submit:
             st.markdown(source.metadata["source"])
             st.markdown("---")
             
-footer="
 
-    <style> your css code put here</style>
+hide_st_style = """
 
-    <div class='footer'>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
 
-    <p>the word you want to tell<a style='display:block;text-align:center;' 
-
-    href='https://www.streamlit.io' target='_blank'>your email address put here</a></p>
-
-    </div>"
-
-st.markdown(footer, unsafe_allow_html=True)
+    """
+st.markdown(hide_st_style, unsafe_allow_html=True)
