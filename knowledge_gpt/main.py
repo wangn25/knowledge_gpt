@@ -23,12 +23,20 @@ EMBEDDING = "openai"
 VECTOR_STORE = "faiss"
 MODEL_LIST = ["gpt-3.5-turbo", "gpt-4"]
 
+hide_st_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+</style>
+"""
+
 # Uncomment to enable debug mode
 # MODEL_LIST.insert(0, "debug")
 
 st.set_page_config(page_title="Yuri KnowledgeGPT Test V1", page_icon="📖", layout="wide")
 st.header("📖Yuri KnowledgeGPT V1")
-
+st.markdown(hide_st_style, unsafe_allow_html=True)
 # Enable caching for expensive functions
 bootstrap_caching()
 
@@ -121,11 +129,5 @@ if submit:
             st.markdown("---")
             
 
-hide_st_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-</style>
-"""
-st.markdown(hide_st_style, unsafe_allow_html=True)
+
+
