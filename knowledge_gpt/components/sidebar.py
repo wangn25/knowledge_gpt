@@ -10,10 +10,10 @@ load_dotenv()
 def sidebar():
     with st.sidebar:
         st.markdown(
-            "## How to use\n"
-            "1. Enter your [OpenAI API key](https://platform.openai.com/account/api-keys) below🔑\n"  # noqa: E501
-            "2. Upload a pdf, docx, or txt file📄\n"
-            "3. Ask a question about the document💬\n"
+            "## 使用方法\n"
+            "1. 键入 [OpenAI API key](https://platform.openai.com/account/api-keys) 🔑，按回车健\n"  # noqa: E501
+            "2. 上传文档 pdf, docx, or txt file📄\n"
+            "3. 开始提问吧💬\n"
         )
         api_key_input = st.text_input(
             "OpenAI API Key",
