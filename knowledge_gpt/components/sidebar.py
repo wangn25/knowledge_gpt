@@ -29,8 +29,9 @@ def sidebar():
         st.markdown("---")
         st.markdown("# About")
         st.markdown(
-            "📖KnowledgeGPT allows you to ask questions about your "
-            "documents and get accurate answers with instant citations. "
+    
+            "📖KnowledgeGPT 允许您询问有关 "
+            "文档，并通过即时文档内容提取而获得准确答案。. "
         )
 
         st.markdown("---")
